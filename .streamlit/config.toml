@@ -1,0 +1,10 @@
+[server]
+
+runOnSave = true
+
+[theme]
+
+primaryColor = "#d33682"# Sliders
+backgroundColor = "#002b36" # Main background
+secondaryBackgroundColor = "#586e75" # Sidebar background
+textColor = "#fff" # Text
