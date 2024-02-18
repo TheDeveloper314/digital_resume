@@ -1,16 +1,17 @@
-import streamlit, PIL
+import streamlit, PIL, streamlit_extras
 
 # General Info
 page_title = "Digital CV | Tareq Abbood"
 page_icon = ":page_facing_up:"
 name = "Tareq Abbood"
-email = "Tariqwaleed27@gmail.com"
+email = "Tareq.Abbood@thedeveloper.me"
 phone = "+9647765673909"
 profile_pic_path = "./assets/profile_pic.png"
 footer_pic_path = "./assets/footer_pic.png"
 css_file_path = "./styles/main.css"
+resume_path = "./assets/resume.pdf"
 
-description = "Aerospace Engineer, assisting enterprises through inovative solutions and by supporting data-driven solutions."
+description = "Aerospace Engineer, assisting enterprises through inovative solutions and by supporting data-driven decision-making."
 social_media = {
 	"LinkedIn": "https://www.linkedin.com/in/tareq-abbood-087a68105",
 	"Github": "https://github.com/TheDeveloper314",
@@ -35,12 +36,15 @@ def load_images():
 def build_hero_section():
 	profile_pic = load_images()[0]
 	col1, col2 = streamlit.columns([1, 2], gap = "large")
+	with open(resume_path, "rb") as pdf_file:
+		pdf = pdf_file.read()
 	with col1:
 		streamlit.image(profile_pic, width = 200)
 	with col2:
 		streamlit.title(name)
 		streamlit.write(description)
 		streamlit.write(":email:", email)
+		streamlit.download_button(f"{page_icon} Download CV", pdf, file_name = "Tareq-Abbood-CV.pdf", mime = "application/octet-stream")
 
 def build_social_secion():
 	streamlit.markdown("#")
@@ -88,96 +92,104 @@ def build_work_history_section():
 	# streamlit.write(":office: **Technical Surveillance Manager** | Iraqi Airways Co.")
 	# streamlit.write("*Baghdad | Iraq*")
 	# streamlit.write("November-2023 to *Present*")
+	# with streamlit.expander("View details"):
 
 	# Job 2
 	streamlit.write(":office: **Project Manager** | JAT Tehnika")
 	streamlit.write("*Belgrade | Serbia*")
 	streamlit.write("May-2023 to November-2023")
-	streamlit.write("""
-		- :scroll: Monitor and control the flow of the check; ensures milestones; card closure and other established indicators are achieved to ensure the agreed TAT is met.
-		- :scroll: Participate and co-ordinates recovery plans between the relevant stakeholders if the TAT / CRS date is at risk or cannot be met.
-		- :scroll: Perform re-planning, together with check leader, for each work package, regarding findings or additional customer requests.
-		- :scroll: Co-ordinate between all relevant stakeholders to ensure all KPIs and agreed timelines are met
-		- :scroll: Cooperate in the analysis of the work package for downtime, workflow, manpower, material, tooling and special processes.
-		- :scroll: Organize Daily meetings with customers and ensure positive customer relationships.
-		- :scroll: Conducts wash up meetings as part of the continuous improvement program.
-		- :scroll: Assure compliance with applicable safety and quality standards.
-		- :scroll: Facilitate and drive process improvements, performing risk assessment and managing cost and time constraints together with the process owners.
-		- :scroll: Carry out other duties per set procedures to ensure optimum flow and quality of work, and customer satisfaction.
-		""")
+	with streamlit.expander("View details"):
+		streamlit.write("""
+			- :scroll: Monitor and control the flow of the check; ensures milestones; card closure and other established indicators are achieved to ensure the agreed TAT is met.
+			- :scroll: Participate and co-ordinates recovery plans between the relevant stakeholders if the TAT / CRS date is at risk or cannot be met.
+			- :scroll: Perform re-planning, together with check leader, for each work package, regarding findings or additional customer requests.
+			- :scroll: Co-ordinate between all relevant stakeholders to ensure all KPIs and agreed timelines are met
+			- :scroll: Cooperate in the analysis of the work package for downtime, workflow, manpower, material, tooling and special processes.
+			- :scroll: Organize Daily meetings with customers and ensure positive customer relationships.
+			- :scroll: Conducts wash up meetings as part of the continuous improvement program.
+			- :scroll: Assure compliance with applicable safety and quality standards.
+			- :scroll: Facilitate and drive process improvements, performing risk assessment and managing cost and time constraints together with the process owners.
+			- :scroll: Carry out other duties per set procedures to ensure optimum flow and quality of work, and customer satisfaction.
+			""")
 
 	# Job 3
 	streamlit.write(":office: **Reliability Team Leader** | Iraqi Airways Co.")
 	streamlit.write("*Baghdad | Iraq*")
 	streamlit.write("August-2022 to November-2023")
-	streamlit.write("""
-		- :scroll: Management of the Reliability Team to ensure that variations from the operational standards are analyzed, and displayed, and that changes to the maintenance program are substantiated.
-		- :scroll: Participation in Reliability Control Board Meetings.
-		- :scroll: Liaison with Technical Support Teams, and Technical Services to ensure analysis is carried out.
-		- :scroll: Liaison with various Directorates, CAMO, SMS, Operations, Line Maintenance, Base Maintenance, and Workshops to ensure flow of data to the Reliability Team and to further improve data delivery efficiency.
-		""")
+	with streamlit.expander("View details"):
+		streamlit.write("""
+			- :scroll: Management of the Reliability Team to ensure that variations from the operational standards are analyzed, and displayed, and that changes to the maintenance program are substantiated.
+			- :scroll: Participation in Reliability Control Board Meetings.
+			- :scroll: Liaison with Technical Support Teams, and Technical Services to ensure analysis is carried out.
+			- :scroll: Liaison with various Directorates, CAMO, SMS, Operations, Line Maintenance, Base Maintenance, and Workshops to ensure flow of data to the Reliability Team and to further improve data delivery efficiency.
+			""")
 
 	# Job 4
 	streamlit.write(":office: **e-Enabling Project Manager** | Iraqi Airways Co.")
 	streamlit.write("*Baghdad | Iraq*")
 	streamlit.write("October-2022 to May-2023")
-	streamlit.write("""
-		- :scroll: Ensure that Iraqi Airways has the proper facilities, equipment, and training for a successful e-Enabled B737-Max, and B787 Entry into Service.
-		- :scroll: Assist in the writing of the e-Enabling Policies and Procedures that ensure a high safety and security standard, and continues airworthiness and availability of the the B737Max and B787 fleets.
-		- :scroll: Liaison with Boeing Entry into Service Team to set-up data retrieval procedures, and configure loadable software parts.
-		- :scroll: Liaison with Cellular Companies to ensure e-Enabled A/C's connectivity at the required stations.
-		- :scroll: Ensure smooth running of e-Enabling operations after Entry into Service.
-		""")
+	with streamlit.expander("View details"):
+		streamlit.write("""
+			- :scroll: Ensure that Iraqi Airways has the proper facilities, equipment, and training for a successful e-Enabled B737-Max, and B787 Entry into Service.
+			- :scroll: Assist in the writing of the e-Enabling Policies and Procedures that ensure a high safety and security standard, and continues airworthiness and availability of the the B737Max and B787 fleets.
+			- :scroll: Liaison with Boeing Entry into Service Team to set-up data retrieval procedures, and configure loadable software parts.
+			- :scroll: Liaison with Cellular Companies to ensure e-Enabled A/C's connectivity at the required stations.
+			- :scroll: Ensure smooth running of e-Enabling operations after Entry into Service.
+			""")
 
 	# Job 5
 	streamlit.write(":office: **Reliability and Maintenance Program Manager** | Iraqi Airways Co.")
 	streamlit.write("*Baghdad | Iraq*")
 	streamlit.write("February-2022 to August-2022")
-	streamlit.write("""
-		- :scroll: Establishment of the Reliability function within Iraqi Airways.
-		- :scroll: Participated in the writing of the IAW Reliability Program.
-		- :scroll: Writing of the procedures related to reliability reports issuance, and maintenance program revising.
-		- :scroll: Management of the Reliability and Maintenance Program Teams to ensure that variations from the operational standards are analyzed, and displayed, and the appropriate adjustments to the maintenance program are carried out.
-		- :scroll: Participation in Reliability Control Board Meetings.
-		- :scroll: Liaison with Technical Support Teams, and Technical Services to ensure analysis is carried out.
-		- :scroll: Liaison with various Directorates, CAMO, SMS, Operations, Line Maintenance, Base Maintenance, and Workshops to ensure flow of data to the Reliability Team and to further improve data delivery efficiency.
-		- :scroll: Liaison with Quality Assurance to ensure findings found in new revisions of Aircraft Maintenance Programs are resolved appropriately and in a timely manner.
-		- :scroll: Participated in the customisation of the A330 Aircraft Maintenance Program.
-		- :scroll: RAMCO Aviation Solutions maintenance Program End-user. Maintaining of the B737-800 Maintenance Program on RAMCO.
-		""")
+	with streamlit.expander("View details"):
+		streamlit.write("""
+			- :scroll: Establishment of the Reliability function within Iraqi Airways.
+			- :scroll: Participated in the writing of the IAW Reliability Program.
+			- :scroll: Writing of the procedures related to reliability reports issuance, and maintenance program revising.
+			- :scroll: Management of the Reliability and Maintenance Program Teams to ensure that variations from the operational standards are analyzed, and displayed, and the appropriate adjustments to the maintenance program are carried out.
+			- :scroll: Participation in Reliability Control Board Meetings.
+			- :scroll: Liaison with Technical Support Teams, and Technical Services to ensure analysis is carried out.
+			- :scroll: Liaison with various Directorates, CAMO, SMS, Operations, Line Maintenance, Base Maintenance, and Workshops to ensure flow of data to the Reliability Team and to further improve data delivery efficiency.
+			- :scroll: Liaison with Quality Assurance to ensure findings found in new revisions of Aircraft Maintenance Programs are resolved appropriately and in a timely manner.
+			- :scroll: Participated in the customisation of the A330 Aircraft Maintenance Program.
+			- :scroll: RAMCO Aviation Solutions maintenance Program End-user. Maintaining of the B737-800 Maintenance Program on RAMCO.
+			""")
 
 	# Job 6
 	streamlit.write(":office: **Maintenance Planning Deputy Manager** | Iraqi Airways Co.")
 	streamlit.write("*Baghdad | Iraq*")
 	streamlit.write("September-2021 to February-2022")
-	streamlit.write("""
-		- :scroll: Supervision of IAW Maintenance Planning teams that handle a fleet of 28 Aircrafts, B737-800, B747-400, B777-200, A320-214, A321-231, A330-202, and CRJ-900LR, and problem solving within the unit.
-		- :scroll: Liaison with various CAMO units, such as Technical Services, Technical Records, and Technical Library, and various Direcorates within the company, such as, Base Maintenance, Line maintenance, SCM, and Quality Assurance to ensure the Airworthiness of IAW fleet and that maintenance is not delayed.
-		- :scroll: Maintenance Forecasting Team leader. Planning Hangar and Line stops to minimise A/Cs downtime. Short-Term, 3 Months, and Long-Term, 3 Years, planning.
-		- :scroll: The improvement of the Maintenance Planning Unit's already existing processes and helping in the establishment of new ones, such as the Forecasting system, and material tracking.
-		- :scroll: Maintenance planning of an A330-202 A/C. Tracking routine maintenance tasks performed on the A/C, and the tasks to be performed. Producing work packages, and following up on them.
-		- :scroll: Participated in the process of receiving the new addition to IAW Fleet, the A220-300. Partook in the workshops done by Airbus Canada for IAW concerning the A220-330, and lead the operator feedback session done by IAW for Airbus Canada.
-		""")
+	with streamlit.expander("View details"):
+		streamlit.write("""
+			- :scroll: Supervision of IAW Maintenance Planning teams that handle a fleet of 28 Aircrafts, B737-800, B747-400, B777-200, A320-214, A321-231, A330-202, and CRJ-900LR, and problem solving within the unit.
+			- :scroll: Liaison with various CAMO units, such as Technical Services, Technical Records, and Technical Library, and various Direcorates within the company, such as, Base Maintenance, Line maintenance, SCM, and Quality Assurance to ensure the Airworthiness of IAW fleet and that maintenance is not delayed.
+			- :scroll: Maintenance Forecasting Team leader. Planning Hangar and Line stops to minimise A/Cs downtime. Short-Term, 3 Months, and Long-Term, 3 Years, planning.
+			- :scroll: The improvement of the Maintenance Planning Unit's already existing processes and helping in the establishment of new ones, such as the Forecasting system, and material tracking.
+			- :scroll: Maintenance planning of an A330-202 A/C. Tracking routine maintenance tasks performed on the A/C, and the tasks to be performed. Producing work packages, and following up on them.
+			- :scroll: Participated in the process of receiving the new addition to IAW Fleet, the A220-300. Partook in the workshops done by Airbus Canada for IAW concerning the A220-330, and lead the operator feedback session done by IAW for Airbus Canada.
+			""")
 
 	# Job 7
 	streamlit.write(":office: **Maintenance Planner** | Iraqi Airways Co.")
 	streamlit.write("*Baghdad | Iraq*")
 	streamlit.write("June-2021 to September-2021")
-	streamlit.write("""
-		- :scroll: Maintenance Forecasting Team leader. Planning Hangar and Line stops to minimise A/Cs downtime. Short-Term, 3 Months, and Long-Term, 3 Years, planning.
-		- :scroll: Maintenance planning of a B737-800 A/C. Tracking routine maintenance tasks performed on the A/C, and the tasks to be performed. Producing work packages, and following up on them.
-		""")
+	with streamlit.expander("View details"):
+		streamlit.write("""
+			- :scroll: Maintenance Forecasting Team leader. Planning Hangar and Line stops to minimise A/Cs downtime. Short-Term, 3 Months, and Long-Term, 3 Years, planning.
+			- :scroll: Maintenance planning of a B737-800 A/C. Tracking routine maintenance tasks performed on the A/C, and the tasks to be performed. Producing work packages, and following up on them.
+			""")
 
 	# Job 8
 	streamlit.write(":office: **Line Maintenance Engineer** | Iraqi Airways Co.")
 	streamlit.write("*Baghdad | Iraq*")
 	streamlit.write("December-2019 to June-2021")
-	streamlit.write("""
-		- :scroll: Supervised the process of preparing an Aircraft for flight, from the technical point of concern, as well as the arrival process.
-		- :scroll: Assisted in performing the Pre-flight, Daily, Weekly, Ramp, and Service checks on different A/C types of IAW Fleet, including B737-800, B747-400, CRJ900, and A320-214.
-		- :scroll: Assisted in the troubleshooting of Aircraft's defects, and rectification of such defects.
-		- :scroll: Lead the process of Aircraft's Pushback as a part of training.
-		""")
+	with streamlit.expander("View details"):
+		streamlit.write("""
+			- :scroll: Supervised the process of preparing an Aircraft for flight, from the technical point of concern, as well as the arrival process.
+			- :scroll: Assisted in performing the Pre-flight, Daily, Weekly, Ramp, and Service checks on different A/C types of IAW Fleet, including B737-800, B747-400, CRJ900, and A320-214.
+			- :scroll: Assisted in the troubleshooting of Aircraft's defects, and rectification of such defects.
+			- :scroll: Lead the process of Aircraft's Pushback as a part of training.
+			""")
 
 def build_academic_history_section():
 	streamlit.markdown("#")
@@ -188,31 +200,33 @@ def build_academic_history_section():
 	streamlit.write(":book: **MSc in Advanced Aerospace Engineering** | University of Liverpool")
 	streamlit.write("*Liverpool | United Kingdom*")
 	streamlit.write("September-2017 to September-2018")
-	streamlit.write("""
-		- :books: Masters Project: Analysis of a High Order CFD code for Aircraft Aerodynamics. The project involved the analysis of a high order finite element CFD code. The code was used to obtain a wing's characteristics, NACA2412, such as the coefficients of lift and drag, in the subsonic regime. The results were evaluated against the data obtained from running the same case using an in house finite element code.
+	with streamlit.expander("View details"):
+		streamlit.write("""
+			- :books: Masters Project: Analysis of a High Order CFD code for Aircraft Aerodynamics. The project involved the analysis of a high order finite element CFD code. The code was used to obtain a wing's characteristics, NACA2412, such as the coefficients of lift and drag, in the subsonic regime. The results were evaluated against the data obtained from running the same case using an in house finite element code.
 
-		- :blue_book: Modules studied include: Advanced Aerodynamics; Advanced Structural Analysis; Aeroelasticity; Advanced Guidance Systems; Rotorcraft flight; Flight Handling Qualities, Space flight; Entreprise Studies; Risk and Uncertainty; and Capstone Group Project.
+			- :blue_book: Modules studied include: Advanced Aerodynamics; Advanced Structural Analysis; Aeroelasticity; Advanced Guidance Systems; Rotorcraft flight; Flight Handling Qualities, Space flight; Entreprise Studies; Risk and Uncertainty; and Capstone Group Project.
 
-		- :green_book: Capstone Group project involved building a fixed-wing UAV. Served as a designer, constructor and head Avionics engineer. Responsibilities included designing and constructing parts of the UAV as well as setting up the autopilot, sensors and the connections between them.
+			- :green_book: Capstone Group project involved building a fixed-wing UAV. Served as a designer, constructor and head Avionics engineer. Responsibilities included designing and constructing parts of the UAV as well as setting up the autopilot, sensors and the connections between them.
 
-		- :orange_book: Flight Handling Qualities project involved the assessment of XV-15 Tiltrotor in a search and rescue mission in Airplane mode. responsibilities included offline assessment of various Aircraft Handling Qualities in various flight envelopes.
+			- :orange_book: Flight Handling Qualities project involved the assessment of XV-15 Tiltrotor in a search and rescue mission in Airplane mode. responsibilities included offline assessment of various Aircraft Handling Qualities in various flight envelopes.
 
-		- :notebook: Served as Flight Engineer in the online testing of the same aircraft, in the University's simulator, by a guest testing pilot.
-		""")
+			- :notebook: Served as Flight Engineer in the online testing of the same aircraft, in the University's simulator, by a guest testing pilot.
+			""")
 
 	# Bachelors Degree
 	streamlit.write(":book: **BSc in Mechanical/Aeronautical Engineering** | University of Baghdad")
 	streamlit.write("*Baghdad | Iraq*")
 	streamlit.write("September-2012 to September-2016")
-	streamlit.write("""
-		- :books: Modules studied include: Aerodynamics; internal combustion engines/propulsion engines; aircrafts’ systems and efficiency; Structure of materials; gas dynamics; fluid mechanics and thermodynamics.
+	with streamlit.expander("View details"):
+		streamlit.write("""
+			- :books: Modules studied include: Aerodynamics; internal combustion engines/propulsion engines; aircrafts’ systems and efficiency; Structure of materials; gas dynamics; fluid mechanics and thermodynamics.
 
-		- :blue_book: Participated in the University exhibit for engineering projects two years in a row, the projects being "Dancing Fountain" Group project, Self-built; "Simple Climbing Robot" Group project, Self-built.
+			- :blue_book: Participated in the University exhibit for engineering projects two years in a row, the projects being "Dancing Fountain" Group project, Self-built; "Simple Climbing Robot" Group project, Self-built.
 
-		- :green_book: Awarded for being the top student in the aeronautics department in junior year, 2014 - 2015.
+			- :green_book: Awarded for being the top student in the aeronautics department in junior year, 2014 - 2015.
 
-		- :orange_book: Awarded for being the third top student in the aeronautics department in senior year, 2015 - 2016.
-		""")
+			- :orange_book: Awarded for being the third top student in the aeronautics department in senior year, 2015 - 2016.
+			""")
 
 def build_workshops_section():
 	streamlit.markdown("#")
@@ -256,7 +270,6 @@ def build_footer_section():
 	cols = streamlit.columns([1, 4, 1])
 	with cols[1]:
 		streamlit.subheader("Looking forward to working with you")
-
 
 def run():
 	init()
