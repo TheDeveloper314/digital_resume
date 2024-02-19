@@ -5,7 +5,7 @@ page_title = "Digital CV | Tareq Abbood"
 page_icon = ":page_facing_up:"
 name = "Tareq Abbood"
 email = "Tareq.Abbood@thedeveloper.me"
-phone = "+9647765673909"
+phone = "+9647731895660"
 profile_pic_path = "./assets/profile_pic.png"
 footer_pic_path = "./assets/footer_pic.png"
 css_file_path = "./styles/main.css"
@@ -19,13 +19,15 @@ social_media = {
 }
 projects = {
 	":trophy: Training Portal - Web app to provide insight into training status and view certificates": "https://training-portal-demo.onrender.com",
-	":trophy: Agora Menu - Coffee House cloud hosted menu": "https://agora-coffee-house.onrender.com"
+	":trophy: Agora Menu - Coffee House cloud hosted menu": "https://agora-coffee-house.onrender.com",
+	":trophy: Whatsup Hub - An offline app to automate communication through whatsapp. Used for marketing purposes.": "offline_use"
 }
 
 def init():
-	streamlit.set_page_config(page_title = page_title, page_icon = page_icon)
+	streamlit.set_page_config(page_title = page_title, page_icon = page_icon, initial_sidebar_state = "collapsed")
 	with open(css_file_path) as file:
 		streamlit.markdown(f'<style>{file.read()}</style>', unsafe_allow_html = True)
+	streamlit.markdown("<style>[data-testid='collapsedControl']{display: none}</style>", unsafe_allow_html = True)
 
 @streamlit.cache_data
 def load_images():
@@ -34,6 +36,7 @@ def load_images():
 	return (profile_pic, footer_pic)
 
 def build_hero_section():
+	streamlit.markdown("###")
 	profile_pic = load_images()[0]
 	col1, col2 = streamlit.columns([1, 2], gap = "large")
 	with open(resume_path, "rb") as pdf_file:
@@ -89,10 +92,18 @@ def build_work_history_section():
 	streamlit.markdown("---")
 
 	# Job 1
-	# streamlit.write(":office: **Technical Surveillance Manager** | Iraqi Airways Co.")
-	# streamlit.write("*Baghdad | Iraq*")
-	# streamlit.write("November-2023 to *Present*")
-	# with streamlit.expander("View details"):
+	streamlit.write(":office: **Technical Training Specialist** | Iraqi Airways Co.")
+	streamlit.write("*Baghdad | Iraq*")
+	streamlit.write("November-2023 to *Present*")
+	with streamlit.expander("View details"):
+		streamlit.write("""
+			- :scroll: Defining training objectives for the technical department, following up on their implementation and overcoming obstacles.
+			- :scroll: The preparation of the annual technical training plan for the technical department.
+			- :scroll: Supervising the practical training of engineers and technicians.
+			- :scroll: Supervising the review of training costs internally and externally.
+			- :scroll: Manage the list of Training Providers and Instructors from evaluating, deleting and adding in coordination with the quality department.
+			- :scroll: Managing training records for employees in the technical department.
+			""")
 
 	# Job 2
 	streamlit.write(":office: **Project Manager** | JAT Tehnika")
