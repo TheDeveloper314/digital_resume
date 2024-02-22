@@ -18,8 +18,10 @@ social_media = {
 	"Instagram": "https://www.instagram.com/x_tariq/"
 }
 projects = {
-	":trophy: Training Portal - Web app to provide insight into training status and view certificates": "https://training-portal-demo.onrender.com",
-	":trophy: Agora Menu - Coffee House cloud hosted menu": "https://agora-coffee-house.onrender.com",
+	":trophy: Training Portal - Web app to provide insight into training status and view certificates (click me!)": "https://training-portal-demo.onrender.com",
+	":trophy: Agora Menu - Coffee House cloud hosted menu (click me!)": "https://agora-coffee-house.onrender.com",
+	":trophy: Finance Dashboard - A dashboard to track varios financial aspects (click me!)": "finance_dashboard",
+	":trophy: Reliability Dashboard - Dashboard to provide insight into and analysis of the reliability of various fleets of an airline operator (click me!)": "reliability_dashboard",
 	":trophy: Whatsup Hub - An offline app to automate communication through whatsapp. Used for marketing purposes.": "offline_use"
 }
 
@@ -62,7 +64,9 @@ def build_experience_section():
 		- :heavy_check_mark: 4 Years experience in the aviation industry.
 		- :heavy_check_mark: Hands-on experience in building dashboards using Python, PowerBI, and Excel.
 		- :heavy_check_mark: Hands-on experience in building and optimising procedures.
+		- :heavy_check_mark: Built Reliability procedures and database for Iraqi Airways.
 		- :heavy_check_mark: Experience in project management for and with industry leading companies, such as AirFrance, ALC, and Boeing.
+		- :heavy_check_mark: Lead the e-Enabling establishment project in Iraqi Airways (infrastructure, training, roles, and operation management)
 		- :heavy_check_mark: Excellent team-player displaying a strong sense of initiative on tasks.
 		""")
 
@@ -81,7 +85,7 @@ def build_skills_section():
 
 def build_projects_section():
 	streamlit.markdown("#")
-	streamlit.subheader("Projects & Accomplishements")
+	streamlit.subheader("Projects & Accomplishements", help = "View a project or a demo of the project by clicking it")
 	streamlit.markdown("---")
 	for project, link in projects.items():
 		streamlit.write(f"[{project}]({link})")
