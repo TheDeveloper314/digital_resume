@@ -20,7 +20,7 @@ social_media = {
 projects = {
 	":trophy: Training Portal - Web app to provide insight into training status and view certificates (click me!)": "https://training-portal-demo.onrender.com",
 	":trophy: Agora Menu - Coffee House cloud hosted menu (click me!)": "https://agora-coffee-house.onrender.com",
-	":trophy: Finance Dashboard - A dashboard to track varios financial aspects (click me!)": "finance_dashboard",
+	":trophy: Finance Dashboard - A dashboard to track various financial aspects (click me!)": "finance_dashboard",
 	":trophy: Reliability Dashboard - Dashboard to provide insight into and analysis of the reliability of various fleets of an airline operator (click me!)": "reliability_dashboard",
 	":trophy: Whatsup Hub - An offline app to automate communication through whatsapp. Used for marketing purposes.": "offline_use"
 }
