@@ -11,7 +11,7 @@ footer_pic_path = "./assets/footer_pic.png"
 css_file_path = "./styles/main.css"
 resume_path = "./assets/resume.pdf"
 
-description = "Aerospace Engineer, assisting enterprises through inovative solutions and by supporting data-driven decision-making."
+description = "Aerospace Engineer, assisting enterprises through innovative solutions and by supporting data-driven decision-making."
 social_media = {
 	"LinkedIn": "https://www.linkedin.com/in/tareq-abbood-087a68105",
 	"Github": "https://github.com/TheDeveloper314",
