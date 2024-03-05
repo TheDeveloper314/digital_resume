@@ -1,0 +1,18 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Tareq Abbood
+N:Abbood;Tareq;;;
+EMAIL;TYPE=INTERNET;TYPE=WORK:Tareq.Abbood@thedeveloper.me
+TEL;TYPE=CELL:7731895660
+item1.ORG:The Developer
+item1.X-ABLabel:
+item2.TITLE:Founder\, CEO
+item2.X-ABLabel:
+BDAY:19950115
+item3.URL:https\://tareq-abbood-digital-cv.onrender.com
+item3.X-ABLabel:PROFILE
+URL;TYPE=WORK:https\://github.com/TheDeveloper314
+item4.URL:https\://www.linkedin.com/in/tareq-abbood-087a68105
+item4.X-ABLabel:PROFILE
+CATEGORIES:myContacts
+END:VCARD
